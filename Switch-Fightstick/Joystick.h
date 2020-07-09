@@ -43,6 +43,7 @@
 #include <avr/interrupt.h>
 #include <string.h>
 
+#include <stdlib.h>
 
 #include <LUFA/Drivers/USB/USB.h>
 #include <LUFA/Drivers/Board/Joystick.h>
@@ -69,7 +70,7 @@ typedef enum {
 	SWITCH_RCLICK  = 0x800,
 	SWITCH_HOME    = 0x1000,
 	SWITCH_CAPTURE = 0x2000,
-  SWITCH_RELEASE = 0x00,
+	SWITCH_RELEASE = 0x00,
 } JoystickButtons_t;
 
 #define HAT_TOP          0x00
@@ -84,7 +85,7 @@ typedef enum {
 
 #define STICK_MIN      0
 #define STICK_CENTER 128
-#define STICK_MAX 255
+#define STICK_MAX    255
 
 typedef enum {
 	Button,
@@ -94,6 +95,9 @@ typedef enum {
 	RY,
 	HAT,
 	RELEASE,
+	HOLD_LX,
+	HOLD_LY,
+	HOLD_L_RELEASE,
 } Target_t;
 
 // Joystick HID report structure. We have an input and an output.
